@@ -1,65 +1,60 @@
-# spark-dataframe-to-pandas README
+# Spark DataFrame to Pandas Converter
 
-This is the README for your extension "spark-dataframe-to-pandas". After writing up a brief description, we recommend including the following sections.
+## Overview
+
+This Visual Studio Code extension helps developers working with PySpark DataFrames to easily convert them to Pandas DataFrames during debugging sessions. With this extension, you can right-click a PySpark DataFrame in the Locals pane and instantly convert it to a Pandas DataFrame for easier inspection and manipulation. The newly converted Pandas DataFrame can also be viewed using the VSCode Data Viewer (with the Data Wrangler extension).
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Convert Spark DataFrame to Pandas DataFrame**: Simply right-click on any PySpark DataFrame in the debugger and select "Convert Spark DataFrame to Pandas".
+- **Automatic Variable Creation**: A new variable is created for the Pandas DataFrame, so it can be accessed and explored during your debug session.
+- **View Pandas DataFrame in Data Viewer**: After conversion, you can inspect the Pandas DataFrame using the VSCode Data Wrangler extension.
 
-For example if there is an image subfolder under your extension project workspace:
+## How It Works
 
-\!\[feature X\]\(images/feature-x.png\)
+1. During a debug session, pause the execution where a PySpark DataFrame is present.
+2. In the Debugger’s Variables window, right-click on the Spark DataFrame you want to convert.
+3. Select the option `Convert Spark DataFrame to Pandas` from the context menu.
+4. The extension converts the Spark DataFrame and assigns it to a new variable with the suffix `_pandas`.
+5. Optionally, you can view the DataFrame using the Data Wrangler's `Data Viewer`.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Installation
+
+1. Install the extension via VSCode by building and packaging it:
+    ```bash
+    vsce package
+    ```
+2. Open the `VSIX` file generated and install it in your VSCode environment.
+3. Install the Data Wrangler extension if you want to use the `View in Data Viewer` feature.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- **VSCode**: Ensure you have Visual Studio Code installed.
+- **VSCode Debugger**: A working debugger setup in VSCode for your PySpark projects.
+- **Data Wrangler**: For viewing DataFrames, install the Data Wrangler extension to enable the Data Viewer feature.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+This extension currently doesn't require any configuration settings.
 
-For example:
+## Usage
 
-This extension contributes the following settings:
+1. Start a debug session in VSCode with a PySpark script.
+2. Pause the execution at a breakpoint where a Spark DataFrame is present.
+3. Right-click the DataFrame in the Locals window.
+4. Select `Convert Spark DataFrame to Pandas`.
+5. The converted DataFrame will appear in the Locals window with a `_pandas` suffix.
+6. Right-click the new variable and choose `View Value in Data Viewer` to inspect it (requires Data Wrangler).
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Contributing
+
+Feel free to open issues and submit pull requests if you have suggestions for improvements or new features.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- Refreshing the variables window may take a few moments after converting the DataFrame. In some cases, manually stepping in the debugger might help update the view.
+- The `View in Data Viewer` feature requires the Data Wrangler extension to be installed.
 
-## Release Notes
+## License
 
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+MIT License. See `LICENSE` for more information.
