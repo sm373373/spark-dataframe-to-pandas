@@ -1,0 +1,44 @@
+{
+  "name": "spark-dataframe-to-pandas",
+  "displayName": "Spark DataFrame to Pandas",
+  "description": "This extension makes it easy to convert a spark dataframe to pandas to work with visualization tools such as DataWrangler",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onDebug"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [{
+      "command": "spark-dataframe-to-pandas.convertToPandas",
+      "title": "Convert Spark DataFrame to Pandas"
+    }],
+    "menus": {
+      "debug/variables/context": [
+        {
+          "command": "spark-dataframe-to-pandas.convertToPandas",
+          "when": "true",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.93.0",
+    "@types/mocha": "^10.0.8",
+    "@types/node": "20.x",
+    "eslint": "^9.11.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
